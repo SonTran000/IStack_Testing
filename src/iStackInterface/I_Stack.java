@@ -1,17 +1,17 @@
 package iStackInterface;
 
-public class I_Stack {
-	private int stack[];
+public class I_Stack implements IStack{
+	private int stackArray[];
     private int top;
     private int size;
     public I_Stack(int s) {
     	this.size = s;
-        stack = new int[s];
+        stackArray = new int[s];
         top = 0;
     }
     public void Clear()
     { 
-    	stack = new int [size];
+    	stackArray = new int [size];
     	top = 0;
     }
     
@@ -19,7 +19,7 @@ public class I_Stack {
     {
     	for(int i=0; i<top; i++)
     	{
-    		if (stack[i]==value)
+    		if (stackArray[i]==value)
     			return true;
     	}
     	return false;
@@ -28,7 +28,7 @@ public class I_Stack {
     public int Peek() throws StackEmptyException 
     { 
     	if(!IsEmpty()){
-             return stack[top-1];
+             return stackArray[top-1];
         } else{
         	throw new StackEmptyException("Can't peek when stack is empty");
         }
@@ -36,10 +36,10 @@ public class I_Stack {
 
 	public void Push(int value) 
 	{
-	    if (top == stack.length){
+	    if (top == stackArray.length){
 	    	System.out.println("Stack is full");
 	    } else {
-	       stack[top]= value;
+	       stackArray[top]= value;
 	        top++;
 	    }
 	
@@ -48,7 +48,7 @@ public class I_Stack {
 	public int Pop() throws StackEmptyException
 	{
 	    if(!IsEmpty()){
-	    	int value = stack[top-1];
+	    	int value = stackArray[top-1];
 	       	top --;
 	     	return value; 
 	    } else{
@@ -67,5 +67,9 @@ public class I_Stack {
 	}
 	public int size() {
 		return top;
+	}
+	@Override
+	public boolean IsFull() {		
+		return top==size;
 	}
 }
