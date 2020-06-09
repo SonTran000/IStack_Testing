@@ -16,7 +16,9 @@ class ExceptionTesting {
 		
 		I_Stack test = new I_Stack(3);		
 		Exception exception = assertThrows(StackEmptyException.class,() -> test.Pop());
-		assertEquals("StackEmptyException ", exception.getMessage());
+		assertEquals("StackEmptyException Can't pop when stack is empty", exception.getMessage());
+		exception = assertThrows(StackEmptyException.class,() -> test.Peek());
+		assertEquals("StackEmptyException Can't peek when stack is empty", exception.getMessage());
 	}
 
 }

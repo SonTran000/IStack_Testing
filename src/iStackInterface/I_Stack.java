@@ -40,7 +40,7 @@ public class I_Stack implements IStack{
 	    	System.out.println("Stack is full");
 	    } else {
 	       stackArray[top]= value;
-	        top++;
+	       top++;
 	    }
 	
 	}
@@ -49,7 +49,7 @@ public class I_Stack implements IStack{
 	{
 	    if(!IsEmpty()){
 	    	int value = stackArray[top-1];
-	       	top --;
+	       	top--;
 	     	return value; 
 	    } else{
 	    	throw new StackEmptyException("Can't pop when stack is empty");

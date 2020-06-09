@@ -9,6 +9,6 @@ public class StackEmptyException extends Exception {
      
     @Override
     public String getMessage() {
-        return "StackEmptyException ";
+        return "StackEmptyException " + super.getMessage();
     } 
 }
