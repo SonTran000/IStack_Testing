@@ -3,15 +3,15 @@ package iStackInterface;
 public class I_Stack implements IStack{
 	private int stackArray[];
     private int top;
-    private int size;
+    private int MaxSize;
     public I_Stack(int s) {
-    	this.size = s;
+    	this.MaxSize = s;
         stackArray = new int[s];
         top = 0;
     }
     public void Clear()
     { 
-    	stackArray = new int [size];
+    	stackArray = new int [MaxSize];
     	top = 0;
     }
     
@@ -70,6 +70,6 @@ public class I_Stack implements IStack{
 	}
 	@Override
 	public boolean IsFull() {		
-		return top==size;
+		return top==MaxSize;
 	}
 }
